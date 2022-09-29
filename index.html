@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieDB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Logo start -->
+        <div class="logo">
+            <div class="container">
+                <p>Movie<span>DB.</span></p>
+            </div>
+        </div>
+        <!-- Logo end -->
+        <!-- search bar start -->
+        <div class="search-container">
+            <div class="search-element">
+                <h3>Search Movie:</h3>
+                <input type="text" class="form-control" placeholder="Search Movie Title ..." id="movie-search-box" onkeyup="findMovies()">
+                <div class="search-list" id="search-list"></div>
+            </div>
+        </div>
+        <!-- search bar end -->
+        <!-- result start -->
+        <div class="container">
+            <div class="result-container">
+                <div class="result-grid" id="result-grid">
+                    <!-- movie info start-->
+                    
+                    <!-- movie info end -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- result end -->
+
+    </div>
+
+
+
+
+    <!-- script js -->
+    <script src="script.js"></script>
+</body>
+</html>
