@@ -3,15 +3,12 @@ const searchList = document.getElementById('search-list');
 const resultGrid = document.getElementById('result-grid');
 
 //fetch data
-function loadMovies(searchTerm){
+async function loadMovies(searchTerm){
     const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=836dd1fc`;
-    fetch(URL)
-        .then(res => res.json())
-        .then(data => {
-            if (data.Response === "True") {
-                displayMovieList(data.Search);
-            }
-        })
+    const res = await fetch(`${URL}`);
+    const data = await res.json();
+    // console.log(data.Search);
+    if(data.Response == "True") displayMovieList(data.Search);
 }
 
 function findMovies() {
@@ -57,17 +54,17 @@ function displayMovieList(movies){
 
 function loadMoviesDetails(){
     const searchListMovies = searchList.querySelectorAll('.sli');
-
     searchListMovies.forEach(movie => {
-        movie.addEventListener('click', () => {
+        movie.addEventListener('click', async () => {
             // console.log(movie.dataset.id);
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
-            fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=836dd1fc`)
-                .then(res => res.json())
-                .then(data => displayMovieDetails(data));
-        })
-    })
+            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=836dd1fc`);
+            const movieDetails = await result.json();
+            // console.log(movieDetails);
+            displayMovieDetails(movieDetails);
+        });
+    });
 }
 
 function displayMovieDetails(details){
